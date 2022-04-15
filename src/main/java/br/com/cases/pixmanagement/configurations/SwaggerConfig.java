@@ -15,6 +15,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.time.LocalDate;
 import java.util.Collections;
 
+/**
+ * Swagger 2 configuration class.
+ *
+ * @author Adrian
+ * @version 1.0.0
+ * @since 2022
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -22,6 +29,11 @@ public class SwaggerConfig {
     @Autowired
     private TypeResolver typeResolver;
 
+    /**
+     * Method responsible for returning essential information to Swagger.
+     *
+     * @return Docket plugin documentation class.
+     */
     @Bean
     public Docket pixManagementApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -38,6 +50,11 @@ public class SwaggerConfig {
                 .enableUrlTemplating(false);
     }
 
+    /**
+     * Method responsible for assembling the API information.
+     *
+     * @return ApiInfo class from the Swagger documentation.
+     */
     private ApiInfo getApiInfo() {
         return new ApiInfo("Pix management", "Responsible to all pix management operations.",
                 getClass().getPackage().getImplementationVersion(), null, null, null,
